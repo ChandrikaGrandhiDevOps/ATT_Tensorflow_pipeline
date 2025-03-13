@@ -1,120 +1,100 @@
-------------------------
--- CREATE VIEW CALENDAR
-------------------------
-CREATE VIEW gold.calendar
+CREATE VIEW gold.calendars
 AS
-SELECT 
-    * 
+SELECT
+      *
 FROM 
-    OPENROWSET
-        (
-            BULK 'https://awstoragedatalake.blob.core.windows.net/silver/AdventureWorks_Calendar/',
-            FORMAT = 'PARQUET'
-        ) as QUER1
+    OPENROWSET(
+        BULK 'https://datatables.blob.core.windows.net/silver/AdventureWorks_Calendar/AdventureWorks_Calendar.csv/',
+        FORMAT = 'PARQUET'
+    )as Q1
 
 
-------------------------
--- CREATE VIEW CUSTOMERS
-------------------------
-CREATE VIEW gold.customers
+ CREATE VIEW gold.customers
+ AS
+ SELECT
+      *
+ FROM 
+    OPENROWSET(
+        BULK 'https://datatables.blob.core.windows.net/silver/AdventureWorks_Customers/AdventureWorks_Customers.csv/',
+        FORMAT = 'PARQUET'
+    )as Q2
+
+ CREATE VIEW gold.categories
 AS
-SELECT 
-    * 
+SELECT
+      *
 FROM 
-    OPENROWSET
-        (
-            BULK 'https://awstoragedatalake.blob.core.windows.net/silver/AdventureWorks_Customers/',
-            FORMAT = 'PARQUET'
-        ) as QUER1
+    OPENROWSET(
+        BULK 'https://datatables.blob.core.windows.net/silver/AdventureWorks_Product_Categories/AdventureWorks_Product_Categories.csv/',
+        FORMAT = 'PARQUET'
+    )as Q3
 
 
-
-------------------------
--- CREATE VIEW PRODUCTS
-------------------------
-CREATE VIEW gold.products
+ CREATE VIEW gold.Products
 AS
-SELECT 
-    * 
+SELECT
+      *
 FROM 
-    OPENROWSET
-        (
-            BULK 'https://awstoragedatalake.blob.core.windows.net/silver/AdventureWorks_Products/',
-            FORMAT = 'PARQUET'
-        ) as QUER1
+    OPENROWSET(
+        BULK 'https://datatables.blob.core.windows.net/silver/AdventureWorks_Products/AdventureWorks_Products.csv/',
+        FORMAT = 'PARQUET'
+    )as Q4
 
 
-------------------------
--- CREATE VIEW RETURNS
-------------------------
-CREATE VIEW gold.returns
+CREATE VIEW gold.Returns
 AS
-SELECT 
-    * 
+SELECT
+      *
 FROM 
-    OPENROWSET
-        (
-            BULK 'https://awstoragedatalake.blob.core.windows.net/silver/AdventureWorks_Returns/',
-            FORMAT = 'PARQUET'
-        ) as QUER1
-        
+    OPENROWSET(
+        BULK 'https://datatables.blob.core.windows.net/silver/AdventureWorks_Returns/AdventureWorks_Returns.csv/',
+        FORMAT = 'PARQUET'
+    )as Q5
 
-------------------------
--- CREATE VIEW RETURNS
-------------------------
-CREATE VIEW gold.returns
+
+
+CREATE VIEW gold.Sales_2015
 AS
-SELECT 
-    * 
+SELECT
+      *
 FROM 
-    OPENROWSET
-        (
-            BULK 'https://awstoragedatalake.blob.core.windows.net/silver/AdventureWorks_Returns/',
-            FORMAT = 'PARQUET'
-        ) as QUER1
+    OPENROWSET(
+        BULK 'https://datatables.blob.core.windows.net/silver/AdventureWorks_Sales_2015/AdventureWorks_Sales_2015.csv/',
+        FORMAT = 'PARQUET'
+    )as Q6
 
 
-    ------------------------
--- CREATE VIEW SALES
-------------------------
-CREATE VIEW gold.sales
+
+CREATE VIEW gold.Sales_2016
 AS
-SELECT 
-    * 
+SELECT
+      *
 FROM 
-    OPENROWSET
-        (
-            BULK 'https://awstoragedatalake.blob.core.windows.net/silver/AdventureWorks_Sales/',
-            FORMAT = 'PARQUET'
-        ) as QUER1
+    OPENROWSET(
+        BULK 'https://datatables.blob.core.windows.net/silver/AdventureWorks_Sales_2016/AdventureWorks_Sales_2016.csv/',
+        FORMAT = 'PARQUET'
+    )as Q7
 
 
-------------------------
--- CREATE VIEW SUBCAT
-------------------------
-CREATE VIEW gold.subcat
+CREATE VIEW gold.Sales_2017
 AS
-SELECT 
-    * 
+SELECT
+      *
 FROM 
-    OPENROWSET
-        (
-            BULK 'https://awstoragedatalake.blob.core.windows.net/silver/AdventureWorks_SUbCategories/',
-            FORMAT = 'PARQUET'
-        ) as QUER1
+    OPENROWSET(
+        BULK 'https://datatables.blob.core.windows.net/silver/AdventureWorks_Sales_2017/AdventureWorks_Sales_2017.csv/',
+        FORMAT = 'PARQUET'
+    )as Q8
 
-
-
-------------------------
--- CREATE VIEW TERRITORIES
-------------------------
-CREATE VIEW gold.territories
+CREATE VIEW gold.ProductSubcategories
 AS
-SELECT 
-    * 
+SELECT
+      *
 FROM 
-    OPENROWSET
-        (
-            BULK 'https://awstoragedatalake.blob.core.windows.net/silver/AdventureWorks_Territories/',
-            FORMAT = 'PARQUET'
-        ) as QUER1
+    OPENROWSET(
+        BULK 'https://datatables.blob.core.windows.net/silver/Product_Subcategories/AdventureWorks_Product_Subcategories.csv/',
+        FORMAT = 'PARQUET'
+    )as Q9
+
+
+
